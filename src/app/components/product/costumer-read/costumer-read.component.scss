@@ -1,0 +1,38 @@
+
+
+.table-body {
+    box-shadow: 0px 10px 17px 2px #ccc;
+
+    table {
+        width: 100%;
+
+        i.edit {
+            color: rgb(6, 72, 226);
+            margin-right: 10px;
+        }
+        
+        i.delete {
+            color: rgb(189, 5, 5);
+        }
+    }
+    
+   
+}
+
+.mobile-container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-container{
+        display: block;
+
+        ul {
+            list-style: none;
+        }
+    }
+
+    .table-body {
+        display: none;
+    }
+}

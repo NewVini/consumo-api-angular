@@ -1,0 +1,89 @@
+<div class="p-5 container">
+    <div class="row mb-5">
+        <form [formGroup]="form">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <input maxlength="3" formControlName="id" placeholder="id" type="number" class="form-control">
+                </div>
+                <div class="col-auto">
+                    <input formControlName="name" placeholder="Nome" type="text" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <input formControlName="age" placeholder="Idade" type="text" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <input formControlName="city" placeholder="Cidade" type="text" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <button (click)="filtrar()" class="btn-primary">Filtrar</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="table-body">
+        <table mat-table [dataSource]="dataSource" *ngIf="dataSource != undefined">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> First Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef> Last age </th>
+                <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="city">
+                <th mat-header-cell *matHeaderCellDef> city </th>
+                <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+            </ng-container>
+            <!-- Action Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Ações</th>
+                <td mat-cell *matCellDef="let row">
+                    <a (click)="saveById(row.id)" href="" routerLink="/costumer/update/{{row.id}}">
+                        <i class="material-icons edit">
+                            edit
+                        </i>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row mobile-container">
+        <div class="col-md-12">
+            <div class="card jusify-content-center text-center p-2 mt-3" *ngFor="let customer of customers">
+                <ul>
+                    <li>
+                        <b>id:</b> {{customer.id}}
+                    </li>
+                    <li>
+                        <b>Name:</b> {{customer.name}}
+                    </li>
+                    <li>
+                        Age: {{customer.age}}
+                    </li>
+                    <li>
+                        City: {{customer.city}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

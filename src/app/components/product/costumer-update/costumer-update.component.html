@@ -1,0 +1,23 @@
+<div class="container forms-container">
+    <form [formGroup]="form">
+        <h4 class="mb-3">Atualização de cliente</h4>
+        <mat-form-field>
+            <input formControlName="id" matInput type="text" placeholder="id" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="name" matInput type="text" placeholder="Price" name="price">
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="age" matInput type="text" placeholder="Price" name="price">
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="city" matInput type="text" placeholder="Price" name="price">
+        </mat-form-field>
+    </form>
+    <button class="new" mat-raised-button (click)="updateCostumer()">
+        Update
+    </button>
+    <button class="cancel" mat-raised-button (click)="cancel()">
+        Cancel
+    </button>
+</div>

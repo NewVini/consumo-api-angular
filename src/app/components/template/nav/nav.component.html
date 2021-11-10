@@ -1,0 +1,26 @@
+<p><button class="toglebtn" mat-button (click)="toggleSidenav()">
+        <i class="material-icons">
+            menu
+        </i>
+    </button></p>
+<mat-sidenav-container class="">
+    <mat-sidenav class="sidenav" mode="side" [opened]="isShowing" fixedInViewport="true" fixedTopGap="64">
+        <mat-nav-list class="nav-list">
+            <a routerLink="" mat-list-item>
+                <i class="material-icons">
+                    home
+                </i>
+                Início
+            </a>
+            <a routerLink="costumers-list" mat-list-item>
+                <i class="material-icons">
+                    shopping_cart
+                </i>
+                Clientes
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

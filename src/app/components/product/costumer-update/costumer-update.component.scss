@@ -1,0 +1,28 @@
+
+
+.forms-container {
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        background-color: #ffff;
+        padding: 20px;
+        box-shadow: 0px 10px 17px 2px #ccc;
+        margin-bottom: 10px;
+    }
+    
+    .new {
+        background: #43b908;
+        margin-right: 16px;
+        font-size: 1rem;
+        color: #ffff;
+    }
+    
+    .cancel {
+        background: #e40a0a;
+        margin-right: 16px;
+        font-size: 0.9rem;
+        color: #ffff;
+    }
+    
+}
